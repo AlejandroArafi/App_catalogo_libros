@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
               itemCount: books.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.book,
                     color: Color.fromARGB(255, 16, 198, 201),
                   ),
