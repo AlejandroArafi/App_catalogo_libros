@@ -20,15 +20,16 @@ class BookDetailScreen extends StatelessWidget {
                 children: [
                   Text(
                     book['volumeInfo']['title'],
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 24, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text(
                       'Author: ${book['volumeInfo']['authors']?.join(', ') ?? 'Unknown'}'),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text(
                       'Description: ${book['volumeInfo']['description'] ?? 'No description available'}'),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                 ],
               ),
             ),

@@ -36,15 +36,40 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Libros'),
-      ),
+          title: const Text(
+            'Catalogo de Flutter',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+          backgroundColor: Colors.lightBlue[400]),
       body: isLoading
           ? Center(child: CircularProgressIndicator())
           : ListView.builder(
               itemCount: books.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text(books[index]['volumeInfo']['title']),
+                  leading: Icon(
+                    Icons.book,
+                    color: Color.fromARGB(255, 16, 198, 201),
+                  ),
+                  title: Text(
+                    books[index]['volumeInfo']['title'],
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: Colors.black87,
+                    ),
+                  ),
+                  subtitle: Text(
+                    books[index]['volumeInfo']['authors']?.join(', ') ??
+                        'Autor Desconocido',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey[600], // Color del texto del subtítulo
+                    ),
+                  ),
                   onTap: () {
                     Navigator.push(
                       context,
