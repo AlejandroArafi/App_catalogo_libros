@@ -8,32 +8,26 @@ class BookDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(book['volumeInfo']['title']),
-        ),
-        body: SafeArea(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    book['volumeInfo']['title'],
-                    style: const TextStyle(
-                        fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                      'Author: ${book['volumeInfo']['authors']?.join(', ') ?? 'Unknown'}'),
-                  const SizedBox(height: 8),
-                  Text(
-                      'Description: ${book['volumeInfo']['description'] ?? 'No description available'}'),
-                  const SizedBox(height: 20),
-                ],
-              ),
+      appBar: AppBar(
+        title: Text(book['title']),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              book['title'],
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-          ),
-        ));
+            SizedBox(height: 8),
+            Text('Author: ${book['authors'] ?? 'Unknown'}'),
+            SizedBox(height: 8),
+            Text(
+                'Description: ${book['description'] ?? 'No description available'}'),
+          ],
+        ),
+      ),
+    );
   }
 }
