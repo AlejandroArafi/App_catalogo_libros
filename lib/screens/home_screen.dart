@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
         setState(() {
           isLoading = false;
         });
-        // Show an error message or handle the error appropriately
+
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text('Failed to load books')));
       }
@@ -57,10 +57,10 @@ class _HomeScreenState extends State<HomeScreen> {
             color: Colors.white,
           ),
         ),
-        backgroundColor: Color(0xFF5C6BC0),
+        backgroundColor: const Color.fromARGB(255, 68, 186, 254),
       ),
       body: isLoading
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : ListView.separated(
               itemCount: books.length,
               separatorBuilder: (context, index) => Divider(
@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
               itemBuilder: (context, index) {
                 final book = books[index]['volumeInfo'];
                 return ListTile(
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.book,
                     color: Color(0xFF5C6BC0),
                   ),

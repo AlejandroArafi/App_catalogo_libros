@@ -9,8 +9,12 @@ class BookDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(book['title'] ?? 'No title'),
-        backgroundColor: Color(0xFF5C6BC0), // Ajusta el color si es necesario
+        title: Text(
+          book['title'] ?? 'No title',
+          style:
+              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: const Color.fromARGB(255, 68, 186, 254),
       ),
       body: SafeArea(
         child: Padding(
@@ -20,19 +24,20 @@ class BookDetailScreen extends StatelessWidget {
             children: [
               Text(
                 book['title'] ?? 'No title',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Text(
                 'Author: ${book['authors']?.join(', ') ?? 'Unknown'}',
-                style: TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 16),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Expanded(
                 child: SingleChildScrollView(
                   child: Text(
                     'Description: ${book['description'] ?? 'No description available'}',
-                    style: TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16),
                   ),
                 ),
               ),
